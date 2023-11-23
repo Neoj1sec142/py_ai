@@ -44,10 +44,13 @@ e ** x = b
 # b = 5.2
 # print(np.log(b))
 # print(E ** 1.6486586255873816)
-softmax_output = [0.7, 0.1, 0.2]
-target_ouput = [1, 0, 0]
+# softmax_outputs = np.array([[0.7, 0.1, 0.2],
+#                             [0.1, 0.5, 0.4],
+#                             [0.02, 0.9, 0.08]])
+# target_ouput = [0, 1, 1]
 
-loss = -(math.log(softmax_output[0])*target_ouput[0] + 
-         math.log(softmax_output[1])*target_ouput[1]+ 
-         math.log(softmax_output[2])*target_ouput[2])
-print(loss)
+# print(-np.log(softmax_outputs[range(len(softmax_outputs)), target_ouput]))
+# loss = -(math.log(softmax_output[0])*target_ouput[0] + 
+#          math.log(softmax_output[1])*target_ouput[1]+ 
+#          math.log(softmax_output[2])*target_ouput[2])
+# print(loss)
