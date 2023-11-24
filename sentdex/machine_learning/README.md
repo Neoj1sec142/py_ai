@@ -127,5 +127,14 @@ Mean Shift Dynamic Bandwidth - Practical Machine Learning Tutorial with Python p
 ***     
 
 ### Starting to Code LinearRegression
-7. [] - [Regression How it Works](./seven.py)
-8. [] - [LinearRegression](./lrfs.py)
+7. [x] - [Regression How it Works](./seven.py)
+8. - 12. [x] - [LinearRegression](./lrfs.py)
+
+### Classification:
+
+13. [] - [Classification w/ K Nearest Neighbors Intro]()
+
+
+
+### Resources:
+[datasets](https://archive.ics.uci.edu/datasets)

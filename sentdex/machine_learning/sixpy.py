@@ -37,10 +37,11 @@ print('-'*50)
 
 df['label'] = df[forcast_col].shift(-forecast_out)
 
-X = np.array(df.drop(['label'], axis=1))
+X = np.array(df.drop(['label', 'Adj. Close'], axis=1))
 X = preprocessing.scale(X)
-X = X[:-forecast_out]
 X_lately = X[-forecast_out:]
+X = X[:-forecast_out]
+
 
 df.dropna(inplace=True)
 y = np.array(df['label'])
