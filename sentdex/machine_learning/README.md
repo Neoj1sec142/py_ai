@@ -132,9 +132,14 @@ Mean Shift Dynamic Bandwidth - Practical Machine Learning Tutorial with Python p
 
 ### Classification:
 
-13. [] - [Classification w/ K Nearest Neighbors Intro]()
+13. [sk-k-nearest-neigh] - [Classification w/ K Nearest Neighbors Intro](./thirteen.py)
 
+14. - 17. [k-nearest-neigh-algo] - [K Nearest Neighbors HW](./k_nearest_neigbor.py)
 
+18. - 19. [k-nearest-neigh-test] - [K Nearest Neighbors HW](./nearest_neigh_test.py)
+
+### SVM (Support Vector Machines)
+20. [SVM Intro]()
 
 ### Resources:
 [datasets](https://archive.ics.uci.edu/datasets)
