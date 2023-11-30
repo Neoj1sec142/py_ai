@@ -45,9 +45,10 @@ class Support_Vector_Machine:
         step_sizes = [self.max_feature_value * 0.1,
                      self.max_feature_value * 0.01,
                      # point of expense
-                     self.max_feature_value * 0.001]
-        # extremly expensive
-        b_range_multiple = 5
+                     self.max_feature_value * 0.001
+                     ]
+        # extremly expensive 
+        b_range_multiple = 2
         
         b_multiple = 5
         latest_optimum = self.max_feature_value*10
@@ -115,4 +116,13 @@ data_dict = {
     }
 svm = Support_Vector_Machine()
 svm.fit(data=data_dict)
+
+predict_us = [[0,10],[1,3],
+              [3,4],[3,5],
+              [5,5],[5,6],
+              [6,-5],[5,8]]
+
+for p in predict_us:
+    svm.predict(p)
+
 svm.visualize()
