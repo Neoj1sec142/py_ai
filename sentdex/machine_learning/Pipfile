@@ -9,6 +9,7 @@ quandl = "*"
 pandas = "*"
 numpy = "*"
 matplotlib = "*"
+cvxopt = "*"
 
 [dev-packages]
 
