@@ -29,46 +29,75 @@ def generate_line(show=True):
         plt.grid(True) # Show grid for better readability
         plt.show() # Display the plot
 
-def generate_dummy_data(self):
+def generate_dummy_data():
     X = np.random.rand(100, 1) * 10  # 100 random X values
     y = 2 * X + 1 + np.random.randn(100, 1) * 2  # Corresponding y values with some noise
     return X, y
 
+# X, y = generate_dummy_data()
+# # Splitting the dataset into training and testing sets
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Splitting the dataset into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# # Initializing the Linear Regression model
+# model = LinearRegression()
 
-# Initializing the Linear Regression model
-model = LinearRegression()
+# # Fitting the model with the training data
+# model.fit(X_train, y_train)
 
-# Fitting the model with the training data
-model.fit(X_train, y_train)
+# # Predicting y values using the trained model
+# y_pred = model.predict(X_test)
 
-# Predicting y values using the trained model
-y_pred = model.predict(X_test)
-
-# Plotting the results
-plt.figure(figsize=(10, 6))
-plt.scatter(X_train, y_train, color='blue', label='Training data') # Plot training data points
-plt.scatter(X_test, y_test, color='red', label='Testing data') # Plot testing data points
-plt.plot(X_test, y_pred, color='green', label='Linear regression line') # Plot the regression line
-plt.title('Linear Regression with Dummy Data')
-plt.xlabel('X')
-plt.ylabel('y')
-plt.legend()
-plt.show()
+# # Plotting the results
+# plt.figure(figsize=(10, 6))
+# plt.scatter(X_train, y_train, color='blue', label='Training data') # Plot training data points
+# plt.scatter(X_test, y_test, color='red', label='Testing data') # Plot testing data points
+# plt.plot(X_test, y_pred, color='green', label='Linear regression line') # Plot the regression line
+# plt.title('Linear Regression with Dummy Data')
+# plt.xlabel('X')
+# plt.ylabel('y')
+# plt.legend()
+# plt.show()
 
 
 # Displaying the coefficient and intercept of the line
-print(f"Coefficient (Slope): {model.coef_[0][0]}")
-print(f"Intercept: {model.intercept_[0]}")
+# print(f"Coefficient (Slope): {model.coef_[0][0]}")
+# print(f"Intercept: {model.intercept_[0]}")
 
 
-class Project:
-    def __init__(self):
-        self.df = None
-    def run_project(self):
-        pass
+class TimeTokenizer:
+    def __init__(self, datetime):
+        self.datetime_rx = "%Y-%m-%d %H:%M:%S:%f"
+        self.datetime_str = datetime
+        self.dt = self.parse_dt()
+        
+    def parse_dt(self):
+        try:
+            return datetime.strptime(self.datetime_str, self.datetime_rx)
+        except ValueError as e:
+            print(f"Error parsing datetime string: {e}")
+            return None
     
+    def tokenize_datetime(self):
+        if not self.datetime_obj:
+            return {}
+
+        return {
+            'year': self.datetime_obj.year,
+            'month': self.datetime_obj.month,
+            'day': self.datetime_obj.day,
+            'hour': self.datetime_obj.hour,
+            'minute': self.datetime_obj.minute,
+            'second': self.datetime_obj.second
+        }
+        
+    def dt_to_sec(self, other_dt):
+        if not self.dt or not other_dt:
+            return 0
+        time_difference = (self.dt - other_dt).total_seconds()
+        return int(time_difference)
     
-    
+
+dt_string = "2023-01-01 12:00:00:00"
+tokenizer = TimeTokenizer(dt_string)
+other_dt = datetime(2023, 1, 2, 12, 0, 0)
+print("Seconds from parameter to self.dt:", tokenizer.dt_to_sec(other_dt))
